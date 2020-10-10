@@ -9,6 +9,7 @@ const T = new Twit({
 // start stream and track tweets
 const stream = T.stream('statuses/filter', {
   track: ['#EndSARS', '#EndSarsNow', '#EndPoliceBrutality'],
+  count: 100,
 });
 
 // use this to log errors from requests
@@ -16,7 +17,7 @@ function responseCallback(err, data, response) {
   console.log(err);
 }
 
-let waitTime = 10 * 60 * 1000; // = 10mins.
+let waitTime = 60 * 60 * 1000; // = 1hr.
 
 setInterval(() => {
   // event handler
