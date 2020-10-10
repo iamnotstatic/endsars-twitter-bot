@@ -16,7 +16,7 @@ function responseCallback(err, data, response) {
   console.log(err);
 }
 
-let waitTime = 10 * 60 * 1000; // = 30min.
+let waitTime = 10 * 60 * 1000; // = 10mins.
 
 setInterval(() => {
   // event handler
