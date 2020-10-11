@@ -9,8 +9,14 @@ const T = new Twit({
 
 // start stream and track tweets
 const stream = T.stream('statuses/filter', {
-  track: ['#EndSARS', '#EndSarsNow', '#EndPoliceBrutality'],
-  count: 10,
+  track: [
+    '#EndSARS',
+    '#EndSarsNow',
+    '#EndPoliceBrutality',
+    '#EndNigeriaNow',
+    '#EndNigeria',
+  ],
+  count: 100,
 });
 
 // use this to log errors from requests
@@ -22,11 +28,9 @@ function responseCallback(err, data, response) {
 
 // event handler
 
-setInterval(() => {
-  stream.on('tweet', (tweet) => {
-    // retweet
-    T.post('statuses/retweet/:id', { id: tweet.id_str }, responseCallback);
-    // like
-    T.post('favorites/create', { id: tweet.id_str }, responseCallback);
-  });
-}, 0);
+stream.on('tweet', (tweet) => {
+  // retweet
+  T.post('statuses/retweet/:id', { id: tweet.id_str }, responseCallback);
+  // like
+  T.post('favorites/create', { id: tweet.id_str }, responseCallback);
+});
