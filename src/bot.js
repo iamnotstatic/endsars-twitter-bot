@@ -9,18 +9,11 @@ const T = new Twit({
 
 // start stream and track tweets
 const stream = T.stream('statuses/filter', {
-  track: [
-    '#EndSARS',
-    '#EndSarsNow',
-    '#EndPoliceBrutality',
-    '#EndNigeriaNow',
-    '#EndNigeria',
-  ],
-  count: 100,
+  track: '#EndSARS'
 });
 
 // use this to log errors from requests
-function responseCallback(err, data, response) {
+const  responseCallback =(err, data, response) => {
   console.log(err);
 }
 
@@ -29,6 +22,7 @@ function responseCallback(err, data, response) {
 // event handler
 
 stream.on('tweet', (tweet) => {
+  console.log(`Tweet ${tweet.id_str}`);
   // retweet
   T.post('statuses/retweet/:id', { id: tweet.id_str }, responseCallback);
   // like
