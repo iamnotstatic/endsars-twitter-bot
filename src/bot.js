@@ -1,4 +1,5 @@
 const Twit = require('twit');
+
 const T = new Twit({
   consumer_key: process.env.APPLICATION_CONSUMER_KEY_HERE,
   consumer_secret: process.env.APPLICATION_CONSUMER_SECRET_HERE,
@@ -9,7 +10,7 @@ const T = new Twit({
 // start stream and track tweets
 const stream = T.stream('statuses/filter', {
   track: ['#EndSARS', '#EndSarsNow', '#EndPoliceBrutality'],
-  count: 100,
+  count: 10,
 });
 
 // use this to log errors from requests
@@ -17,14 +18,13 @@ function responseCallback(err, data, response) {
   console.log(err);
 }
 
-let waitTime = 60 * 60 * 1000; // = 1hr.
+// let waitTime = 60 * 60 * 1000;
 
-setInterval(() => {
-  // event handler
-  stream.on('tweet', (tweet) => {
-    // retweet
-    T.post('statuses/retweet/:id', { id: tweet.id_str }, responseCallback);
-    // like
-    T.post('favorites/create', { id: tweet.id_str }, responseCallback);
-  });
-}, waitTime);
+// event handler
+
+stream.on('tweet', (tweet) => {
+  // retweet
+  T.post('statuses/retweet/:id', { id: tweet.id_str }, responseCallback);
+  // like
+  T.post('favorites/create', { id: tweet.id_str }, responseCallback);
+});
