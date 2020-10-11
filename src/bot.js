@@ -22,9 +22,11 @@ function responseCallback(err, data, response) {
 
 // event handler
 
-stream.on('tweet', (tweet) => {
-  // retweet
-  T.post('statuses/retweet/:id', { id: tweet.id_str }, responseCallback);
-  // like
-  T.post('favorites/create', { id: tweet.id_str }, responseCallback);
-});
+setInterval(() => {
+  stream.on('tweet', (tweet) => {
+    // retweet
+    T.post('statuses/retweet/:id', { id: tweet.id_str }, responseCallback);
+    // like
+    T.post('favorites/create', { id: tweet.id_str }, responseCallback);
+  });
+}, 0);
