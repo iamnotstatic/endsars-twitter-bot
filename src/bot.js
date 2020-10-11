@@ -15,7 +15,7 @@ const stream = T.stream('statuses/filter', {
 
 // use this to log errors from requests
 const  responseCallback =(err, data, response) => {
-  console.log(data.errors);
+  //console.log(data.errors);
 }
 
 // let waitTime = 60 * 60 * 1000;
@@ -27,5 +27,4 @@ stream.on('tweet', (tweet) => {
   T.post('statuses/retweet/:id', { id: tweet.id_str }, responseCallback);
   // like
   T.post('favorites/create', { id: tweet.id_str }, responseCallback);
-  console.log(`Tweet ${tweet.id_str}`);
 });
