@@ -15,6 +15,10 @@ const stream = T.stream('statuses/filter', {
     '#EndPoliceBrutality',
     '#EndNigeriaNow',
     '#EndNigeria',
+    '#EndSwat',
+    '#Buharihasbeenabadboy',
+    '#Wike',
+    '#EndSars'
   ],
   count: 100,
 });
