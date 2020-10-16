@@ -10,7 +10,7 @@ const T = new Twit({
 
 // start stream and track tweets
 const stream = T.stream('statuses/filter', {
-  track: ['#SARSMUSTEND', '#EndSWAT', '#EndSARS']
+  track: ['#SARSMUSTEND', '#EndSWAT', '#EndSARS','#EndPoliceBrutality']
 });
 
 // use this to log errors from requests
