@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 app.get('/', function (req, res) {
   res.json({
     message: 'Welcome to ENDSARS BOt',
-    link: 'https://twitter.com/_EndSarzNow',
+    link: 'https://twitter.com/endsarsbot_',
   });
 });
 
