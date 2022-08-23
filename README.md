@@ -2,6 +2,6 @@
 
 # ENDSARS Twitter Bot
 
-This Bot is made to retweet everything  related to the #EndSars Movement. [https://twitter.com/endsarsbot\_](https://twitter.com/endsarsbot_)
+This Bot is made to retweet everything  related to the #EndSars Movement. [here](https://twitter.com/endsarsbot_)
 
 Created By: [Abdulfatai Suleiman](https://twitter.com/iamnotstatic)
